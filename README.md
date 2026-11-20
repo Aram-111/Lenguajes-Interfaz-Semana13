@@ -12,7 +12,7 @@
 ### 🔹 Lab 13a: Parpadeo mediante Registros en C Puro
 * **Archivo:** `lab13a/lab13a.ino`
 * **Descripción:** Control del pin integrado (`PB5` / Pin 13) manipulando directamente los registros `DDRB` y `PORTB` mediante operaciones a nivel de bits (`|=`, `&= ~`), sustituyendo `delay()` por un retardo por software con variable `volatile`.
-* **🎥 Video Demostrativo 13a:** [Pega aquí tu enlace del video para Lab 13a]
+* **🎥 Video Demostrativo 13a:** https://drive.google.com/file/d/1Be72rD8m9Mgwd8kVj4absMBzIOTu9VjF/view?usp=sharing
 
 ### 🔹 Lab 13b: Ensamblador Inline (`sbi`, `cbi`, `out`)
 * **Archivo:** `lab13b/lab13b.ino`
