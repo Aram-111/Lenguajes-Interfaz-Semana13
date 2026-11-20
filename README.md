@@ -11,18 +11,25 @@
 
 ### 🔹 Lab 13a: Parpadeo mediante Registros en C Puro
 * **Archivo:** `lab13a/lab13a.ino`
-* **Descripción:** Control del pin integrado (`PB5` / Pin 13) manipulando directamente los registros `DDRB` y `PORTB` mediante operaciones a nivel de bits (`|=`, `&= ~`), sustituyendo `delay()` por un retardo por software con variable `volatile`.
+* **Descripción y Retos completados:** 
+  * **Código Base:** Control del pin integrado (`PB5` / Pin 13) manipulando directamente los registros `DDRB` y `PORTB` mediante operaciones a nivel de bits (`|=`, `&= ~`).
+  * **Mejora:** Sustitución de la función `delay()` de Arduino por un retardo por software utilizando un ciclo `for` con una variable `volatile` para evitar optimizaciones del compilador.
 * **🎥 Video Demostrativo 13a:** https://drive.google.com/file/d/1Be72rD8m9Mgwd8kVj4absMBzIOTu9VjF/view?usp=sharing
 
 ### 🔹 Lab 13b: Ensamblador Inline (`sbi`, `cbi`, `out`)
 * **Archivo:** `lab13b/lab13b.ino`
-* **Descripción:** Control de hardware mediante instrucciones nativas AVR (`asm volatile`). Implementa `sbi` para configurar el puerto de salida y `out` para escribir bytes completos en `PORTB` (`0x05`), integrado con retardo por software sin `delay()` (Bono +5%).
-* **🎥 Video Demostrativo 13b:** [Pega aquí tu enlace del video para Lab 13b]
+* **Descripción y Retos completados:** 
+  * **Código Base:** Control de hardware mediante instrucciones nativas AVR (`asm volatile`), usando `sbi` y `cbi` para manipular bits individuales.
+  * **Bono del +5%:** Integración de la instrucción `out` para escribir bytes completos en `PORTB` (`0x05`), fusionado con el retardo por software (`volatile`), eliminando por completo el uso de `delay()`.
+* **🎥 Video Demostrativo 13b:** https://drive.google.com/file/d/18V2x17H7bfdlfwmHOADo37JdYLF9toyq/view?usp=sharing
 
-### 🔹 Lab 13c: Carrera de 4 LEDs ("Ida y Vuelta")
+### 🔹 Lab 13c: Carrera de 4 LEDs
 * **Archivo:** `lab13c/lab13c.ino`
-* **Descripción:** Secuencia bidireccional (`LED 1 → 4 → 1`) sobre los pines digitales 8 al 11 (`PB0` a `PB3`) calculando el desplazamiento de bits (`1 << i`) y escribiendo directamente en `PORTB` mediante la instrucción `out` en ensamblador inline.
-* **🎥 Video Demostrativo 13c (Demostración y Explicación):** [Pega aquí tu enlace del video para Lab 13c] *(En este video muestro la carrera de LEDs funcionando, señalo la línea de ASM inline en el código y explico la instrucción `out`).*
+* **Descripción y Retos completados:** 
+  * **Código Base:** Carrera de 4 LEDs en una dirección usando C puro con máscaras y corrimiento de bits.
+  * **Reto 1:** Reemplazo de la escritura en el puerto por ensamblador inline, usando la instrucción `out` dentro del ciclo `for` para enviar el valor calculado (`1 << i`).
+  * **Reto 2 (Implementación Final):** Efecto bidireccional "ida y vuelta" (LED 1 → 4 → 1) o estilo *Auto Increíble*. Se logró el rebote continuo sin repetir los tiempos en los LEDs de los extremos.
+* **🎥 Video Demostrativo 13c:** https://drive.google.com/file/d/1aCk4j6ilxXS_p63sMdhaJc8uqJ6ybZWR/view?usp=sharing *(En este video muestro la carrera de LEDs funcionando, señalo la línea de ASM inline en el código y explico la instrucción `out` y por qué requiere un registro).*
 
 ---
 
